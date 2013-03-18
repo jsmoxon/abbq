@@ -1,18 +1,17 @@
 from django.conf.urls import patterns, include, url
-from django.views.generic.simple import direct_to_template
-
+from django.views.generic import TemplateView
 
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
 #    url(r'^$', 'abbq.views.home', name='home'),
-    url(r'^$', direct_to_template, {'template': 'index.html'}),
-    url(r'^about/', direct_to_template, {'template': 'about.html'}),
-    url(r'^roster/', direct_to_template, {'template': 'roster.html'}),
-    url(r'^contact/', direct_to_template, {'template': 'contact.html'}),
-    url(r'^schedule/', direct_to_template, {'template': 'schedule.html'}),
-    url(r'^press/', direct_to_template, {'template': 'press.html'}),
+    url(r'^$', TemplateView.as_view(template_name= 'index.html')),
+    url(r'^about/', TemplateView.as_view(template_name= 'about.html')),
+    url(r'^roster/', TemplateView.as_view(template_name= 'roster.html')),
+    url(r'^contact/', TemplateView.as_view(template_name= 'contact.html')),
+    url(r'^schedule/', TemplateView.as_view(template_name= 'schedule.html')),
+    url(r'^press/', TemplateView.as_view(template_name= 'press.html')),
 
 
 # url(r'^abbq/', include('abbq.foo.urls')),
